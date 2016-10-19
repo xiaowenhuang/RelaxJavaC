@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+body{font-size:12px;font-family:simsun,sans-serif;width:100%;margin-left: auto;margin-right: auto;}
+a{text-decoration: none;}
+
+.xpForm{width: 100%;}
+.xpForm tr td:FIRST-CHILD{text-align: right;padding-right: 10px;}
+.xpForm textarea{width:300px;height: 50px;}
+
+.xp-tb{table-layout:fixed;}
+.xp-tb tr{background:#fff;}
+.xp-tb tbody tr:HOVER{background:#fcdd82;}
+.xp-tb tr td,th{white-space: nowrap;padding:2px 4px;}
+
+.button{cursor:pointer;}
