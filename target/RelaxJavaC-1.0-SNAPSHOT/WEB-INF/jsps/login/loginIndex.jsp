@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <title>登陆首页</title>
@@ -32,7 +36,7 @@
         <div class="row cl">
           <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
           <div class="formControls col-xs-8">
-            <input id="userPsw" name="userPsw" type="password" placeholder="密码" class="input-text size-L">
+            <input id="passwd" name="passwd" type="password" placeholder="密码" class="input-text size-L">
           </div>
         </div>
         <div class="row cl">
@@ -48,7 +52,9 @@
         <div class="row cl">
           <div class="formControls col-xs-8 col-xs-offset-3">
             <input type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;"
-                   onclick="loginPost()">
+                   onclick="loginPost()">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <input type="button" class="btn btn-success radius size-L" value="&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;"
+                   onclick="registerPost()">
           </div>
         </div>
       </form>
@@ -70,9 +76,9 @@
             function(data){
               if(data == "SUCCESS"){
                 alert("<%=basePath%>");
-                window.top.location.href = "<%=basePath%>";
+                //window.top.location.href = "<%=basePath%>";
               } else {
-                alert("登陆失败");
+                alert("登陆失败"+data);
                 changeValidateCode();
               }
             }, "text");
@@ -85,6 +91,13 @@
       }
     });
   });
+
+  //注册
+  function registerPost(){
+    //window.open（<%=request.getContextPath()%>）
+    alert("<%=basePath%>register");
+    window.location.href="<%=basePath%>register/index";
+  }
 </script>
 </body>
 </html>
