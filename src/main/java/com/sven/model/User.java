@@ -1,15 +1,21 @@
 package com.sven.model;
 
+/**
+ * user表实体类
+ * Created by sven on 2016/10/24.
+ */
 public class User {
 	private int id;
-	private String name;
-	private String userNum;
+	private String firstName;
+	private String lastName;
+	private String account;
 	private String passwd;
 	private int sex;
 	private int age;
 	private String profession;
 	private int mobile;
 	private String email;
+	private String aboutYourself;
 	
 	public void setId(int id){
 		this.id=id;
@@ -17,17 +23,28 @@ public class User {
 	public int getId(){
 		return id;
 	}
-	public void setName(String name){
-		this.name=name;
+
+	public String getFirstName() {
+		return firstName;
 	}
-	public String getName(){
-		return name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public void setUserNum(String userNum){
-		this.userNum=userNum;
+
+	public String getLastName() {
+		return lastName;
 	}
-	public String getUserNum(){
-		return userNum;
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setAccount(String account){
+		this.account=account;
+	}
+	public String getAccount(){
+		return account;
 	}
 	public void setPasswd(String passwd){
 		this.passwd=passwd;
@@ -64,6 +81,14 @@ public class User {
 	}
 	public String getEmail(){
 		return email;
+	}
+
+	public String getAboutYourself() {
+		return aboutYourself;
+	}
+
+	public void setAboutYourself(String aboutYourself) {
+		this.aboutYourself = aboutYourself;
 	}
 }
 

@@ -45,21 +45,15 @@ public class Login {
     @ResponseBody
     public String loginPost(User user,HttpServletRequest request){
         String validateCode = request.getParameter("validateCode");
-        boolean valideResult = validateCode(validateCode,request);
-        if(!valideResult){
-            //renderText("FAIL");
+        boolean validateResult = validateCode(validateCode,request);
+        if(!validateResult){
             return "Fail";
         }
-        String userNum = user.getUserNum();
+        String account = user.getAccount();
         String passwd = user.getPasswd();
         passwd = XPFunctions.saltMD5(passwd);
-
-       // WebUser user = WebUser.dao.singleUserByUserNum(userNum);
-        User users = loginService.getUserInfo(userNum);
+        User users = loginService.getUserInfo(account);
         if(users != null && users.getPasswd().equals(passwd)){
-           // WebUser.initUserInfoIntoSession(user,getSession());
-           // String clientIp = XPNet.getClientIp(getRequest());
-          //  WebAccessLog.dao.addLog(clientIp, user.getInt("userId"));
             System.out.println("登陆成功");
             return("SUCCESS");
         }

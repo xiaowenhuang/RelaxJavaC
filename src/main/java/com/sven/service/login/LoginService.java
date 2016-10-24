@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
  */
 
 public interface LoginService {
-    public User getUserInfo(String userNum);
+    public User getUserInfo(String account);
 }

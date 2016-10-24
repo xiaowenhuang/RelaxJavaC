@@ -13,7 +13,7 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private LoginDao loginDao;
     @Override
-    public User getUserInfo(String userNum) {
-        return loginDao.getUserInfo(userNum);
+    public User getUserInfo(String account) {
+        return loginDao.getUserInfo(account);
     }
 }

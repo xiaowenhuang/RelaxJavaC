@@ -23,8 +23,20 @@
 	DefaultAnnotationHandlerMapping annotation-driven HandlerMapping
 	-->
 	<!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
-	<mvc:annotation-driven/>
-	
+	<mvc:annotation-driven>
+	<!--     解决返回String时乱码-->
+	<mvc:message-converters register-defaults="true">
+		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+			<property name="supportedMediaTypes">
+				<list>
+					<value>text/plain;charset=UTF-8</value>
+					<value>text/html;charset=UTF-8</value>
+				</list>
+			</property>
+		</bean>
+	</mvc:message-converters>
+	</mvc:annotation-driven>
+
 	<!-- 静态资源处理，css,js,imgs -->
 	<mvc:resources location="/resources/" mapping="/resources/**"/>
 	
