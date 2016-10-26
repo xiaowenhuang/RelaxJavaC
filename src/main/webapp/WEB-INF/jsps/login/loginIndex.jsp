@@ -12,13 +12,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
 <head>
-    <title>登陆首页</title>
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/static/h-ui/css/H-ui.min.css" />
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/static/h-ui.admin/css/H-ui.admin.css" />
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/lib/Hui-iconfont/1.0.7/iconfont.css" />
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/static/h-ui.admin/skin/default/skin.css" id="skin" />
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/static/h-ui.admin/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Public/H-/static/h-ui.admin/css/H-ui.login.css" />
+  <title>登陆首页</title>
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/static/h-ui/css/H-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/static/h-ui.admin/css/H-ui.admin.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/lib/Hui-iconfont/1.0.7/iconfont.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/static/h-ui.admin/skin/default/skin.css" id="skin" />
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/static/h-ui.admin/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/Public/H-/static/h-ui.admin/css/H-ui.login.css" />
 
 </head>
 <body>
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    onblur="if(this.value==''){this.value='验证码:'}"
                    onclick="if(this.value=='验证码:'){this.value='';}"
                    value="验证码:" style="width:150px;">
-            <img src="captcha" id="validateCodeImg" onclick="changeValidateCode()">
+            <img src="/login/captcha" id="validateCodeImg" onclick="changeValidateCode()">
             <a id="kanbuq" href="javascript:changeValidateCode();">看不清，换一张</a> </div>
         </div>
         <div class="row cl">
@@ -63,20 +63,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="footer"><a href='http://www.aspic.com.cn' target='_blank'>ASPIC</a></div>
 
 </article>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/Public/H-/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-1.11.1.js"></script>
 <script>
+  $(document).ready(function(){
+    var tips = "<%=request.getParameter("tips")%>";
+    console.log(tips);
+    if(tips != "" && tips != null && tips != "null"){
+      alert("请先登陆！");
+      tips = "";
+    }
+  });
   //更换校验码
   function changeValidateCode(){
-    $("#validateCodeImg").attr("src","captcha?_="+Math.random());
+    $("#validateCodeImg").attr("src","/login/captcha?_="+Math.random());
   }
   //登陆
   function loginPost(){
-    $.post("loginPost",
+    $.post("/login/loginPost",
             $("#FF").serialize(),
             function(data){
+              console.log(data);
               if(data == "SUCCESS"){
                 alert("<%=basePath%>");
-                //window.top.location.href = "<%=basePath%>";
+                window.location.href = "<%=basePath%>relax/index";
               } else {
                 alert("登陆失败"+data);
                 changeValidateCode();

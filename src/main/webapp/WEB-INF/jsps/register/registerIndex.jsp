@@ -164,8 +164,8 @@
               if(data == "SUCCESS"){
                 alert("注册成功");
                 // window.top.location.href =
-              } else if(data == "FAILsss") {
-                alert("登陆失败");
+              } else if(data == "FAILURE") {
+                alert("注册失败");
                 changeValidateCode();
               }else{
                 alert("渲染失败")

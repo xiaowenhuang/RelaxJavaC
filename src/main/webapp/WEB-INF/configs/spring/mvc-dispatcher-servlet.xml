@@ -37,9 +37,8 @@
 	</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<!-- 静态资源处理，css,js,imgs -->
-	<mvc:resources location="/resources/" mapping="/resources/**"/>
-	
+
+
 	<!-- 配置ViewResolver。可以用多个ViewResolver。使用order属性排序。InternalResolverViewResolver放在最后 -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="order" value="1"></property>
@@ -54,13 +53,29 @@
 			<list>
 				<!-- JSON view -->
 				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-					
 				</bean>
 			</list>
 		</property>
-
 	</bean>
-	
+
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!--对所有请求都执行拦截-->
+			<mvc:mapping path="/**" />
+			<!-- 需排除拦截的地址 -->
+			<mvc:exclude-mapping path="/login/index"/>
+			<mvc:exclude-mapping path="/login/loginPost"/>
+			<mvc:exclude-mapping path="/resources/**" />
+			<mvc:exclude-mapping path="/register/index" />
+			<mvc:exclude-mapping path="/register/doRegister" />
+			<bean class="com.sven.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- 静态资源处理，css,js,imgs -->
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+
 	<!-- ③：对模型视图名称的解析，即在模型视图名称添加前后缀    这个模块必须放在页面的最后面-->
 	<!--InternalResourceViewResolver：通过prefix和suffix定制文件路径和类型；默认使用InternalResourceView:渲染jsp-->
 	<!--另包括：JstlView;VelocityView--> 

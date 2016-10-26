@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * 注册类
  * Created by sven on 2016/10/20.
@@ -25,9 +27,10 @@ public class Register {
 
     @RequestMapping("/doRegister")
     @ResponseBody
-    public String doRegister(User user){
+    public String doRegister(User user,HttpSession session){
         try {
             registerService.registerMember(user);
+            session.setAttribute("account",user.getAccount());
         }catch (Exception e){
             e.printStackTrace();
             return "FAILURE";

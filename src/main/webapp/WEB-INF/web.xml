@@ -22,7 +22,6 @@
     </listener-class>
   </listener>
 
-
   <!-- DispatcherServlet,SpringMVC的核心 -->
   <servlet>
     <servlet-name>mvc-dispatcher</servlet-name>

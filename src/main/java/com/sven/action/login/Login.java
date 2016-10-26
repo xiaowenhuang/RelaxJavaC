@@ -1,6 +1,7 @@
 package com.sven.action.login;
 
 /**
+ * 登陆控制类
  * Created by sven on 2016/10/19.
  */
 
@@ -11,10 +12,12 @@ import com.sven.util.XPFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -41,13 +44,14 @@ public class Login {
     /**
      * 提交登陆
      */
-    @RequestMapping("/loginPost")
+    @RequestMapping(value = "loginPost",method = RequestMethod.POST)
     @ResponseBody
-    public String loginPost(User user,HttpServletRequest request){
+    public String loginPost(User user,HttpServletRequest request ,HttpSession session)
+            throws ServletException, IOException {
         String validateCode = request.getParameter("validateCode");
         boolean validateResult = validateCode(validateCode,request);
         if(!validateResult){
-            return "Fail";
+            return "VALIDATECODE";
         }
         String account = user.getAccount();
         String passwd = user.getPasswd();
@@ -55,27 +59,26 @@ public class Login {
         User users = loginService.getUserInfo(account);
         if(users != null && users.getPasswd().equals(passwd)){
             System.out.println("登陆成功");
-            return("SUCCESS");
+            session.setAttribute("account", account);
+            return "SUCCESS";
+        }else if(users != null && !users.getPasswd().equals(passwd)){
+            System.out.println("登陆失败,密码不正确");
+            return "FALSEPASSWORD";
         }
         else{
             System.out.println("登陆失败");
-            return("FAILsdaafadsffa");
-
+            return "FAIL";
         }
     }
 
     /**
      * 输入的校验码是否正确
-     * @param validateCode
-     * @param request
-     * @return
+     * @param validateCode 校验码
+     * @param request 请求
+     * @return 返回true or false
      */
     private boolean validateCode(String validateCode,HttpServletRequest request) {
         Object randomString = request.getSession().getAttribute("randomString");
-        if(validateCode.toUpperCase().equals(randomString)){
-            return true;
-        }else{
-            return false;
-        }
+        return validateCode.toUpperCase().equals(randomString);
     }
 }
