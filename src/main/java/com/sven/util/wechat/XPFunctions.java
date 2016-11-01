@@ -1,4 +1,4 @@
-package com.sven.util;
+package com.sven.util.wechat;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

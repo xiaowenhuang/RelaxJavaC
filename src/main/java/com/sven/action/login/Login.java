@@ -8,7 +8,7 @@ package com.sven.action.login;
 import com.sven.model.User;
 import com.sven.service.login.LoginService;
 import com.sven.util.CaptchaUtil;
-import com.sven.util.XPFunctions;
+import com.sven.util.wechat.XPFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

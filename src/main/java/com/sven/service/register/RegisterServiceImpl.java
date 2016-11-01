@@ -2,7 +2,7 @@ package com.sven.service.register;
 
 import com.sven.dao.register.RegisterDao;
 import com.sven.model.User;
-import com.sven.util.XPFunctions;
+import com.sven.util.wechat.XPFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

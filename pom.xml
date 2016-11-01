@@ -108,6 +108,40 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- 阿里json -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.1.37</version>
+    </dependency>
+
+    <!---->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.7</version>
+    </dependency>
+
+    <!-- dom4j -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>xml-apis</artifactId>
+          <groupId>xml-apis</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--sitemesh 页面装饰-->
+    <dependency>
+      <groupId>org.sitemesh</groupId>
+      <artifactId>sitemesh</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
   </dependencies>
 
 
