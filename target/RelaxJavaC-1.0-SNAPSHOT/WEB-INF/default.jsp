@@ -1,28 +1,4 @@
-<%--<%@ page contentType="text/html;charset=UTF-8"%>
-&lt;%&ndash;<%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator" %>&ndash;%&gt;
-<html>
-<head>
-  <title><sitemesh:write property="title" /> -sitemesh装饰 </title>
-  <sitemesh:write property='head' />
-</head>
-<body>
 
-<%@ include file="layouts/header.jsp"%>
-<header></header>
-<hr/>
-<div id="content">
-
-  <sitemesh:write property='body' />
-  body在这里
-</div>
-<hr/>
-<%@ include file="layouts/footer.jsp"%>
-</body>
-</html>--%>
-
-<%--<%@page import="org.apache.shiro.SecurityUtils"%>
-<%@page import="org.apache.jasper.security.SecurityUtil"%>
-<%@page import="com.kitwee.device.manager.core.basepojo.LoginUser"%>--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="include/taglib.jsp" %>
 <!DOCTYPE html>
@@ -56,7 +32,7 @@
     <li  class="dropdown" id="profile-messages" >
       <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
         <i class="icon icon-user"></i>
-        <span class="text">测试</span><b class="caret"></b>
+        <span class="text">我</span><b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
         <li><a href="${ctx}/userinfo/edit"><i class="icon-user"></i> 个人信息</a></li>
@@ -72,8 +48,9 @@
 
 <div id="sidebar">
   <ul>
-    <li><a href="${ctx }/answerAQuestion/list"><i class="icon iconfont">&#xe604;</i> <span>答题</span></a></li>
+    <li><a href="${ctx }/relax/index"><i class="icon iconfont">&#xe604;</i> <span>答题</span></a></li>
     <li><a href="${ctx }/setAQuestion/list"><i class="icon iconfont">&#xe60b;</i> <span>出题</span></a></li>
+    <li><a href="${ctx }/setAQuestion/list"><i class="icon iconfont">&#xe60b;</i> <span>我的题库</span></a></li>
   </ul>
 </div>
 <!--sidebar-menu-->
