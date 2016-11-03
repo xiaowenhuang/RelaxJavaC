@@ -35,9 +35,6 @@
 	<!--下面的xml里面的内容只要用到上面type的地方都可以用别名代替 ，暂定这样解释-->
 	<mappers>
 		<mapper resource="mybatisSql/User.xml"/>
-<!--	  <mapper resource="mybatis/Employee.xml"/>
-	  <mapper resource="mybatis/TelList.xml"/>
-	  <mapper resource="mybatis/AvailableList.xml"/>
-	  <mapper resource="mybatis/Maintenance.xml"/>-->
+		<mapper resource="mybatisSql/QuestionBank.xml"/>
 	</mappers>
 </configuration>

@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="include/taglib.jsp" %>
 <!DOCTYPE html>
@@ -50,7 +49,7 @@
   <ul>
     <li><a href="${ctx }/relax/index"><i class="icon iconfont">&#xe604;</i> <span>答题</span></a></li>
     <li><a href="${ctx }/setAQuestion/list"><i class="icon iconfont">&#xe60b;</i> <span>出题</span></a></li>
-    <li><a href="${ctx }/setAQuestion/list"><i class="icon iconfont">&#xe60b;</i> <span>我的题库</span></a></li>
+    <li><a href="${ctx }/question/index"><i class="icon iconfont">&#xe60b;</i> <span>我的题库</span></a></li>
   </ul>
 </div>
 <!--sidebar-menu-->

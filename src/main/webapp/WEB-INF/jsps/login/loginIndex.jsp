@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             function(data){
               console.log(data);
               if(data == "SUCCESS"){
-                alert("<%=basePath%>");
+                //alert("<%=basePath%>");
                 window.location.href = "<%=basePath%>relax/index";
               } else {
                 alert("登陆失败"+data);

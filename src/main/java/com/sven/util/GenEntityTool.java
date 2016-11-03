@@ -184,7 +184,7 @@ public class GenEntityTool {
      * @throws SQLException
      */
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        new GenEntityTool("user");
+        new GenEntityTool("question_bank");
     }
 
 }
