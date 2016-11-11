@@ -3,9 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="questionBank">
-    <select id="getAllQuestions" resultType="java.util.List">
+    <select id="getAllQuestions" resultType="com.sven.model.QuestionBank">
         select * from question_bank;
     </select>
+    <!--select * from `user` where`Sex`='男'  AND  `Ctiy`='广州'    order by rand() limit 1-->
+    <select id="getRandomQuestion" resultType="com.sven.model.QuestionBank">
+        select * from question_bank order by rand() limit 1
+    </select>
+
     <insert id="addQuestion">
         insert into question_bank(question,result,createTime,creator,difficulty,answerTime)
         values(#{question},#{result},#{createTime},#{creator},#{difficulty},#{answerTime})

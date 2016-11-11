@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="${ctx }/resources/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="${ctx }/resources/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="${ctx }/resources/font-awesome/css/font-awesome.css"/>
   <script src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
   <script src="${ctx }/resources/bootstrap/js/bootstrap.min.js"></script>

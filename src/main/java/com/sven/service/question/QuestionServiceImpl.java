@@ -16,6 +16,6 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionDao questionDao;
     @Override
     public List<QuestionBank> getAllQuestions() {
-        return null;
+        return questionDao.getAllQuestions();
     }
 }

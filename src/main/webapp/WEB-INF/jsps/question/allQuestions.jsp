@@ -12,13 +12,16 @@
     <title></title>
 </head>
 <body>
-<table>
+<table class="table table-bordered">
+  <thead>
   <tr>
     <th><input type="checkbox" id="all" onclick="selectAll()"/></th>
     <th>序号</th>
     <th>题目</th>
     <th>操作</th>
   </tr>
+  </thead>
+  <tbody>
   <c:forEach items="${questionList}" var="list" varStatus="status">
   <tr <c:if test="${status.index%2!=0}">style='background-color:#ECF6EE;'</c:if>>
     <td><input type="checkbox" name="id" value=${list.id} /></td>
@@ -28,6 +31,7 @@
   </tr>
 
   </c:forEach>
+  </tbody>
 
 
 </table>
